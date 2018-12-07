@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <!--v-on:click=,@click=,注意click紧跟v-0n：-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="myApp">
+    <p>我最喜欢的游戏 : {{mygame}} </p>
+    <button v-on:click="btn('魔兽世界')"> 魔兽世界</button>
+    <button @click=btn("仙剑")>仙剑</button>
+</div>
+<script>
+    var myApp = new Vue({
+            el: '#myApp',
+            data: {
+                mygame: '超级马里奥'
+            },
+            methods: {
+                btn: function(pname) {
+                    this.mygame = pname;
+                }
+            }
+        }
+    )
+</script>
+</body>
+</html>

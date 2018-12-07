@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--引入观察属性，watch中需要定义为data的属性-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="myApp">
+    <p>任天堂主机价格{{price}},打折后{{newprice}}</p>
+    <button v-on:click="btn(100)">加价</button>
+</div>
+<script>
+    var myApp = new Vue({
+        el: "#myApp",
+        data: {
+            price: 0,
+            newprice: 0
+        },
+        watch: {
+            price: function (newVal, oldVal) {
+                console.log(newVal, oldVal);
+                this.newprice = this.price * 0.5;
+            }
+        },
+        methods: {
+            btn: function (p) {
+                this.price += p;
+            }
+        }
+    })
+    myApp.price = 50;
+</script>
+</body>
+</html>

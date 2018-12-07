@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--小的功能块,组件Vue.component-->
+<!--li：有序列表，带有数字-->
+<!--https://cn.vuejs.org/v2/guide/components.html-->
+<!--v-for="",v-bind:a="" -->
+<!--Vue.component("",{props:['a'],template:''})-->
+<!--var myApp = new Vue({el:,data:{games:[]}})-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="myApp">
+    <ol>
+        <game-end v-for="item in games" v-bind:game="item"></game-end>
+    </ol>
+</div>
+
+<script>
+    Vue.component("game-end",{
+        props:['game'],
+        template:'<li>{{game.title}} </li>'
+    })
+    var myApp = new Vue({
+        el: '#myApp',
+        data: {
+            games: [{title: '斗地主'},
+                {title: '打麻雀'},
+                {title: 'UNO'}]
+        }
+    })
+</script>
+</body>
+</html>

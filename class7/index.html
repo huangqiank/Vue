@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--过滤器,小写转大写,小数百分比等操作-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id = 'myApp'>
+<p>{{message}}</p>
+<p>{{message | toupper}}</p>
+    <hr>
+<p>{{num | tocentage}}</p>
+</div>
+<script>
+    var myApp = new Vue({
+        el :'#myApp',
+        data:{
+            message:'hello my word',
+            num:0.3
+        },
+        filters: {
+            toupper: function(value){
+                return value.toUpperCase();
+            },
+            tocentage: function(value){
+                return value*100+'%';
+            }
+        }
+    })
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--v-model-->
+</head>
+<body>
+<div id = "myApp">
+    <p>你最喜欢的游戏: {{mygame}}</p>
+    <input v-model = "mygame">
+</div>
+<script>
+    var myApp = new Vue({
+        el: '#myApp',
+        data: {
+            mygame:'超级玛丽'
+        }
+    })
+    </script>
+</body>
+</html>
