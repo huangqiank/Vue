@@ -6,28 +6,33 @@
     <title>Title</title>
 </head>
 <body>
-<div id='myApp'>
-    <ol>
-        <game-end v-for="item in games" v-bind:game=item></game-end>
-    </ol>
+<div id="myApp">
+    <p>游戏的价格{{price}},打折后{{newprice}},中国价格{{chprice}}</p>
+    <button v-on:click="btn(100)">游戏新价格打折后</button>
 </div>
 <script>
-    Vue.component("game-end", {
-        props: ['game'],
-        template: '<li>{{game.title}}</li>'
-    })
     var myApp = new Vue({
         el: "#myApp",
-        data:{
-            games:[
-                {title:"中国"},
-                {title:"美国"},
-                {title:"英国"}
-            ]
+        data: {price: 400},
+        computed: {
+            newprice: {
+                get: function () {
+                    return this.price / 2
+                },
+                set: function (value) {
+                    this.price = value / 2
+                }
+            },
+            chprice: function () {
+                return this.price * 3
+            }
+        },
+        methods: {
+            btn: function (a) {
+                this.newprice = a
+            }
         }
     })
 </script>
-
-
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--设置计算属性setter-->
+<!--设置计算属性getter,setter,在修改值的时候 this.newprice = a会自动调用set-->
 <html lang="en">
 <head>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
@@ -9,7 +9,7 @@
 <body>
 <div id="myApp">
     <p>今天的价格是 : {{price}},新的价格是 : {{newprice}},中国价格{{chprice}}</p>
-    <button v-on:click="btn(100)">这个的新价格是100</button>
+    <button v-on:click="btn(100)">这个的新价格是{{price}}</button>
 </div>
 <script>
     var myApp = new Vue({
