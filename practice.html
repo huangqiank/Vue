@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<div id="myApp">
-    <p>游戏的价格{{price}},打折后{{newprice}},中国价格{{chprice}}</p>
-    <button v-on:click="btn(100)">游戏新价格打折后</button>
-</div>
+<style>
+    .exp {
+        border: 1px solid #ccc;
+    }
+
+    .forExp {
+        background: blue;
+    }
+</style>
+<div class="exp" v-bind:class="{forExp:isNewExp}">我的</div>
 <script>
-    var myApp = new Vue({
-        el: "#myApp",
-        data: {price: 400},
-        computed: {
-            newprice: {
-                get: function () {
-                    return this.price / 2
-                },
-                set: function (value) {
-                    this.price = value / 2
-                }
-            },
-            chprice: function () {
-                return this.price * 3
-            }
-        },
-        methods: {
-            btn: function (a) {
-                this.newprice = a
-            }
+    var exp = new Vue({
+        el: ".exp",
+        data: {
+            isNewExp: true
         }
     })
 </script>
+
 </body>
-</html>
+</html>u

@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
+<div id="myApp">
+    <div v-bind:class="{active:isactive}">红色文本1</div>
+    <div :class="{active:isactive}">红色文本2</div>
+    <button v-on:click="btn">改变文本</button>
+</div>
+<script>
+    var myApp = new Vue({
+        el: "#myApp",
+        data: {
+            isactive: true
+        },
+        methods: {
+            btn: function(){
+                this.isactive = !this.isactive
+            }
+        }
+    })
+</script>
+
+<style>
+    body{
+        font-size: 24px;
+    }
+    .active {
+        color: red;
+    }
+</style>
 
 </body>
 </html>
