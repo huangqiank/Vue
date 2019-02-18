@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--v-on:event /@event页面元素绑定,
+event.srcElement.tagName:input或者button写在最前面，<input   ><button  >
+event.srcElement.id定义在input，button处，
+event.srcElement.innerHTML,<button></button>间的东西,
+event.key:<input中的输入:>-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="myApp">
+    <h1>事件发生器</h1>
+    <input id="textname" v-on:keyup="textkey($event)">
+    <button id = "textclick" v-on:click="btn($event)">ok</button>
+</div>
+<script>
+    var myApp = new Vue({
+        el: '#myApp',
+        data: {},
+        methods: {
+            textkey: function (event) {
+                this.debuglog(event)
+            },
+            btn: function (event) {
+                this.debuglog(event)
+            },
+            debuglog: function (event) {
+                console.log(
+                    event.srcElement.tagName,
+                    event.srcElement.id,
+                    event.srcElement.innerHTML,
+                    event.key?event.key:""
+                )
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

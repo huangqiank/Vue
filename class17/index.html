@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--input type 文本框绑定，placeholder在输入为空的时候提示的输入-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id = "myApp">
+    <h1>表单控件绑定</h1>
+    <input type="text" v-model="message" placeholder="来吧" >
+    <p>message is:{{message}}</p>
+</div>
+<script>
+    var myApp = new Vue({
+        el:'#myApp',
+        data:{message:""}
+    })
+</script>
+
+</body>
+</html>

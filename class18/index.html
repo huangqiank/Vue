@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--input type checkbox复选框，<input id=  >和<laber for=  >的输入类型一样，value传入v-model-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="myApp">
+    <h1>表单复选单</h1>
+    <input type="checkbox" id="生化危机1" value="生化危机4" v-model="checkGame">
+    <label for="生化危机1"> 生化危机1</label>
+    <input type="checkbox" id="生化危机2" value="生化危机5" v-model="checkGame">
+    <label for="生化危机2"> 生化危机2</label>
+    <input type="checkbox" id="生化危机3" value="生化危机6" v-model="checkGame">
+    <label for="生化危机3"> 生化危机3</label>
+    <br>
+    <p>你选择的游戏：{{checkGame}}</p>
+</div>
+<script>
+    var myApp = new Vue({
+        el: '#myApp',
+        data: {
+            checkGame: []
+        }
+    })
+</script>
+
+</body>
+</html>

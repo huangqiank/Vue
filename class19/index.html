@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--input type radio单选框 -->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="myApp">
+    <h3>性别</h3>
+    <input type="radio" id="male" value="男" v-model="sex">
+    <label for="male">男</label>
+    <br>
+    <input type="radio" id="female" value="女" v-model="sex">
+    <label for="female">女</label>
+
+    <h3>爱好</h3>
+    <input type="radio" id="game" value="游戏" v-model="hobby">
+    <label for="game">游戏</label>
+    <br>
+    <input type="radio" id="movie" value="电影" v-model="hobby">
+    <label for="movie">电影</label>
+    <p>性别:{{sex}}</p>
+    <p>爱好:{{hobby}}</p>
+</div>
+<script>
+    var myApp = new Vue({
+        el: '#myApp',
+        data: {
+            sex: '',
+            hobby: ''
+        }
+    })
+
+</script>
+
+</body>
+</html>

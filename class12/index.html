@@ -10,9 +10,9 @@
 <body>
 <div id = 'myApp'>
     <h1 v-if="result == 0"> 成绩没有公布</h1>
-    <h1 v-else-if="result<=60">刚刚及格</h1>
-    <h1 v-else-if="result<=80">良</h1>
-    <h1 v-else="result>80">优</h1>
+    <h2 v-else-if="result<=60">刚刚及格</h2>
+    <h3 v-else-if="result<=80">良</h3>
+    <h4 v-else="result>80">优</h4>
     <button @click="btn()">考试成绩{{result}}</button>
 </div>
 <script>
