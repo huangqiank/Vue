@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--v-on:click=,@click=,注意click紧跟v-0n：-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="myApp">
+    <h3>新的游戏{{mygame}} </h3>
+    <input v-model="mygame">
+    <h3 v-if="seen">我第二喜欢的游戏:{{mygame2}}</h3>
+    <button v-on:click="btn('魔兽')">魔兽</button>
+    <button @click="btn('仙剑')">仙剑</button>
+    <ol>
+        <li v-for="game in mygame3">{{game.title}}/{{game.value}}</li>
+    </ol>
+</div>
+<script>
+    var myAPP = new Vue({
+        el: '#myApp',
+        data: {
+            seen: true,
+            mygame: "英雄",
+            mygame2: "英雄2",
+            mygame3: [{title: "英雄3", value: 20}, {title: "英雄4", value: 30}, {title: "英雄5", value: 40}]
+        },
+        methods: {
+            btn: function (pgame) {
+                this.mygame2 = pgame
+            }
+        }
+    })
+</script>
+</body>
+</html>
