@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--组件component, protlet组件是页面一小块区域，完成一个页面的功能，注册组件逻辑在申明app之前，Vue.component-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id = 'myApp'>
+    <today-weather></today-weather>
+</div>
+<script>
+    Vue.component('today-weather',{
+        template:'<div>今天下雨</div>'
+    })
+    var myApp = new Vue({
+        el:'#myApp'
+    })
+</script>
+
+
+
+
+</body>
+</html>

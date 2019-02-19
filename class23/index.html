@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--组件的局部注册，用var变量定义，在components注册-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id = 'myApp'>
+    <my-weather></my-weather>
+</div>
+<script>
+    var todayweather = {template:'<div>天气好</div>'};
+    var myApp = new Vue({
+        el:'#myApp',
+        data:{},
+        components:{
+            'my-weather':todayweather
+        }
+    })
+</script>
+
+</body>
+</html>

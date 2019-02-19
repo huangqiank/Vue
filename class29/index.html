@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--事件传递 v-on是监听作用，监听到了就调用方法。
+this.$emit('add_event', {a: value})
+pval代表emit中的value emit有两个元素一个事件名字，一个数值pval-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id='myApp'>
+    <h1>人生加法</h1>
+    <add-method :a="6" :b="10" v-on:add_event="getResult"></add-method>
+    <hr>
+    <h3>{{result}}</h3>
+</div>
+<script>
+    Vue.component('add-method', {
+        props: ['a', 'b'],
+        template: '<div><button v-on:click="add">快加吧</button> </div>',
+        methods: {
+            add: function () {
+                var value = 0;
+                value = this.a + this.b;
+                this.$emit('add_event', {a: value})
+            }
+        }
+
+    })
+
+    var myApp = new Vue({
+        el: '#myApp',
+        data: {result: 0},
+        methods: {
+            getResult: function (pval) {
+                this.result = pval.a
+            }
+        }
+    })
+</script>
+</body>
+</html>

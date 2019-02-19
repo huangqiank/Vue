@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id='myApp'>
+    <h1>内容</h1>
+    <show-member name="komma" :age="10" :detail="{address:'usa',language:'chinese'}"></show-member>
+</div>
+<script>
+    Vue.component('show-member', {
+        props: {
+            name: {type: String, required: true},
+            age: {
+                type: Number,
+                validator: function (value) {
+                    return value > 0 && value < 130
+                }
+            },
+            detail: {
+                type: Object,
+                default: function () {
+                    return {address: "chn", language: "english"}
+                }
+            }
+        },
+        template: '<div>姓名:{{this.name}}<br/>' +
+            '年龄:{{this.age}}<br/>' +
+            '地址:{{this.detail.address}}<br/>' +
+            '语言:{{this.detail.language}}</div>'
+    })
+    var myApp = new Vue({
+        el: '#myApp',
+    })
+
+</script>
+
+</body>
+</html>

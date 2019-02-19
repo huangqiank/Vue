@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--slot插槽，父子组件之间内容的通信方式-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id='myApp'>
+    <say-to pname='koma'>
+        你的视屏太差了
+    </say-to>
+    <say-to pname='jim'>
+        你不要学komma
+    </say-to>
+    <say-to pname='john'>
+        你教下他吧
+    </say-to>
+</div>
+<script>
+    Vue.component('say-to', {
+        props: ['pname'],
+        template: '<div>你好{{pname}}<slot></slot></div>'
+    })
+    var myApp = new Vue({
+        el: '#myApp'
+    })
+</script>
+
+
+</body>
+</html>

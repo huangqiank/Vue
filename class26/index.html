@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--组件传数据:score= 和组件内props定义的一致,将div的数据传回component-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id='myApp'>
+    <h1>你的成绩是</h1>
+    <test-result :score=50></test-result>
+    <test-result :score=61></test-result>
+    <test-result :score=81></test-result>
+</div>
+<script>
+    Vue.component('test-result', {
+        props: ['score'],
+        template: '<div><strong>{{score}}分,{{testresult}}</strong></div>',
+        computed: {
+            testresult: function () {
+                var result = "";
+                if (this.score < 60)
+                    result = "不及格";
+                else if (this.score < 80)
+                    result = "及格";
+                else result = "优秀";
+                return result;
+            }
+        }
+    })
+    var myApp = new Vue({
+        el : '#myApp'
+    })
+
+</script>
+</body>
+</html>

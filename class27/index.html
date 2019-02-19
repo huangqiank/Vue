@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--组件传递变量用v-model传递，用data过度--><head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id = 'myApp'>
+    <div>请输入名字：<input v-model.lazy ='name'></div>
+    <hr>
+    <sayhello :pname='name'></sayhello>
+</div>
+<script>
+    Vue.component('sayhello',{
+        props:['pname'],
+        template:'<div>{{pname}}</div>'
+    })
+    var myApp = new Vue({
+        el:'#myApp',
+        data:{
+            name:'koma'
+        }
+    })
+
+</script>
+
+</body>
+</html>

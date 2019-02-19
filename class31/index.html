@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--组合slot插槽，-->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id='myApp'>
+    <nba c="abc" b="def">
+        <span slot="sf">皮尔斯1</span>
+        <span slot="a">皮尔斯2</span>
+        <span slot="b">皮尔斯3</span>
+        <span slot="c">皮尔斯4</span>
+    </nba>
+</div>
+<script>
+    Vue.component('nba', {
+        props: ['c', 'b'],
+        template: '<div> ' +
+            '<div>上：{{c}}</div> ' +
+            '<div>中：{{b}}</div>' +
+            '<div>下<slot name="sf"></slot></div> ' +
+            '<div><slot name="a"></slot></div> ' +
+            '<div><slot name="b"></slot></div>' +
+            '<div><slot name="c"></slot></div></div>'
+
+    })
+    var myApp = new Vue({
+        el: '#myApp'
+    })
+
+</script>
+</body>
+</html>

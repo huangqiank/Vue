@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id='myApp'>
+    <h1>加法</h1>
+    <add-method :a="6" :b="10" v-on:add_event="getresult"></add-method>
+    <hr>
+    <p>{{result}}</p>
+</div>
+<script>
+    Vue.component('add-method', {
+        props: ['a', 'b'],
+        template: '<div><button v-on:click="add">加吧</button></div>',
+        methods: {
+            add: function () {
+                var value = 0;
+                value = this.a + this.b;
+                this.$emit('add_event', {a: value})
+            }
+        }
+    });
+    var myApp = new Vue({
+        el: '#myApp',
+        data: {result: 0},
+        methods: {
+            getresult: function (pval) {
+                this.result = pval.a
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--输入类型：span 紧挨着上一行输出，lazy：全部输完使用，
+@change当数据变更时使用 结合method一起使用，textarea：输入一段话 -->
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="myApp">
+    <h1>用户注册</h1>
+    <div>
+        <lable for='name'>用户</lable>
+        <input type='text' id='name' v-model.lazy='name' @change="checkName">
+        <span v-if="checkuserName">可以注册</span >
+    </div>
+    <div>
+        <lable for='age'>年龄</lable>
+        <input type='number' id='age' v-model.number="age">
+    </div>
+    <div>
+        <lable for='context'>简介</lable>
+        <textarea id='context' v-model.trim="context" cols="55" rows="8"></textarea>
+    </div>
+    <h4>信息区</h4>
+    <p>{{name}}</p>
+    <p>{{age}}</p>
+    <p>{{context}}</p>
+</div>
+<script>
+    var myApp = new Vue({
+        el: '#myApp',
+        data: {
+            checkuserName: false,
+            name: "",
+            age: "",
+            context: ""
+        },
+        methods: {
+            checkName: function () {
+                if (this.name.length > 0) {
+                    this.checkuserName = true;
+                } else {
+                    this.checkuserName = false;
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
