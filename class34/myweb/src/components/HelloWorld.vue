@@ -1,3 +1,4 @@
+<!--data 定义数据content,在 mounted 进行初始化,获取数据,赋值等。-->
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
@@ -80,6 +81,7 @@
         </a>
       </li>
     </ul>
+    <pre>{{content}}</pre>
   </div>
 </template>
 
@@ -88,26 +90,32 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      content: ''
     }
+  },
+  mounted () {
+    this.axios.post('http://api.komavideo.com/news/list').then(body => {
+      this.content = body.data
+    })
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+  h1, h2 {
+    font-weight: normal;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  a {
+    color: #42b983;
+  }
 </style>
