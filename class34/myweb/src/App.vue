@@ -6,11 +6,15 @@
     <button class="btn btn-success">使用</button>
     <button class="btn btn-danger">注意</button>
     <hr>
+    <hr>
+    <div class="myclass1">你好!</div>
+    <hr>
     <router-view/>
   </div>
 </template>
 
 <script>
+import './assets/my.css'
 export default {
   name: 'App'
 }
