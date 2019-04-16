@@ -1,0 +1,41 @@
+vue -V
+vue list
+vue init webpack myweb
+cd myweb
+npm run dev(测试)
+npm run build(编译)
+入口：main.js
+组件的入口：App.vue
+
+
+
+定义vue版本引入bootstrap
+cd myweb
+npm install bootstrap --save --save-extract
+存入package.json
+nano main.js
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+引入axios
+npm install --save --save-extract axios vue-axios
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios)
+学习mounted
+
+
+定义css
+cd assets
+nano my.css
+import './assets/my.css' 在app.vue的script引入
+
+组件格式
+template:组件html内容
+script:组件js脚本
+style:组件css样式单
+
+路由:
+router下的index.js 写组件
+在main.js中引用，注册router，使用相对路径  import router from './router'
+在App.vue调用组件router-link 制定url链接，每次点击会重新渲染。

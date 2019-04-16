@@ -1,6 +1,7 @@
 <!--data 定义数据content,在 mounted 进行初始化,获取数据,赋值等。-->
 <template>
   <div class="hello">
+    <div class="class1">{{ msg1 }}</div>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -91,7 +92,8 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      content: ''
+      content: '',
+      msg1: 'hello'
     }
   },
   mounted () {
@@ -104,6 +106,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .class1{
+    color:red;
+  }
   h1, h2 {
     font-weight: normal;
   }
