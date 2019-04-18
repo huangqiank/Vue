@@ -13,6 +13,7 @@
       <router-link to="/hello">Home</router-link>
       <router-link to="/news">新闻</router-link>
       <router-link to="/about">关于</router-link>
+      <router-link to="/card">卡</router-link>
     </p>
     <hr>
     <div class="myclass1">你好!</div>

@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import About from '@/components/About'
 import News from '@/components/News'
 import Hello from '@/components/Hello'
+import Card from '@/components/Card'
 
 Vue.use(Router)
 // url 对组件的映射
@@ -28,6 +29,11 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
+    },
+    {
+      path: '/card',
+      name: 'Card',
+      component: Card
     }
   ]
 })
